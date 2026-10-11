@@ -1,0 +1,277 @@
+/* ========== 1. RESET & VARIABEL ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --navy: #0f2142; /* biru tua latar & teks */
+  --paper: #f1f1f3; /* putih keabuan panel & pill */
+  --grey: #5f6f8f; /* warna teks PROGRAMMER */
+}
+
+body {
+  background: #cfd3da;
+  font-family: "Open Sans", Arial, sans-serif;
+  padding: 20px 0;
+}
+
+/* ========== 2. KANVAS CV (736 x 1041 px) ========== */
+.cv {
+  position: relative; /* patokan untuk elemen absolute di dalamnya */
+  width: 736px;
+  height: 1041px;
+  margin: 0 auto;
+  background: var(--navy);
+  overflow: hidden; /* hiasan yang keluar kanvas dipotong */
+}
+
+/* ========== 3. HIASAN BELAH KETUPAT ========== */
+/* kotak diputar 45 derajat sehingga tampak seperti belah ketupat */
+.deco {
+  position: absolute;
+  transform: rotate(45deg);
+}
+.d1 {
+  width: 190px;
+  height: 190px;
+  left: -95px;
+  top: -95px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.d2 {
+  width: 170px;
+  height: 170px;
+  left: 180px;
+  top: -85px;
+  background: rgba(255, 255, 255, 0.28);
+}
+.d3 {
+  width: 60px;
+  height: 60px;
+  left: 561px;
+  top: 975px;
+  background: rgba(255, 255, 255, 0.3);
+}
+.d4 {
+  width: 90px;
+  height: 90px;
+  left: 640px;
+  top: 975px;
+  background: rgba(255, 255, 255, 0.18);
+}
+.d5 {
+  width: 40px;
+  height: 40px;
+  left: 470px;
+  top: 1020px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ========== 4. SIDEBAR KIRI ========== */
+.sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 276px;
+  padding-top: 73px;
+  color: #fff;
+}
+
+.foto {
+  display: block;
+  width: 203px;
+  height: 203px;
+  margin-left: 25px;
+  border-radius: 50%; /* membuat foto jadi lingkaran */
+  object-fit: cover;
+}
+
+/* label berbentuk pil: sisi kiri rata, sisi kanan membulat */
+.pill {
+  width: 228px;
+  height: 44px;
+  background: var(--paper);
+  color: var(--navy);
+  border-radius: 0 24px 24px 0;
+  padding-left: 29px;
+  font:
+    700 21px/44px "Montserrat",
+    sans-serif;
+  letter-spacing: 2.5px;
+}
+.kontak {
+  margin-top: 52px;
+}
+.pendidikan {
+  margin-top: 44px;
+}
+.keahlian {
+  margin-top: 51px;
+}
+
+/* daftar kontak: ikon + teks sejajar dengan flex */
+.kontak-list {
+  list-style: none;
+  margin: 21px 0 0 25px;
+}
+.kontak-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 28px;
+  margin-bottom: 14.5px;
+  font-size: 14.5px;
+}
+.kontak-list svg {
+  width: 23px;
+  height: 23px;
+  flex: none;
+}
+.kontak-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 28px;
+  margin-bottom: 14.5px;
+  padding-right: 22px; /* jaga teks tidak menempel ke panel putih */
+  font-size: 14.5px;
+}
+.kontak-list svg {
+  width: 23px;
+  height: 23px;
+  flex: none;
+}
+
+/* alamat panjang: boleh turun ke 2-3 baris, ikon sejajar baris pertama */
+.kontak-list .alamat {
+  align-items: flex-start;
+  line-height: 1.4;
+}
+.kontak-list .alamat svg {
+  margin-top: 2px;
+}
+
+/* daftar berbullet putih */
+.dot-list {
+  margin-left: 44px;
+  font-size: 17px;
+}
+.dot-list li::marker {
+  font-size: 14px;
+}
+.pendidikan-list {
+  margin-top: 18px;
+  padding-left: 0;
+}
+.pendidikan-list li {
+  height: 28px;
+  line-height: 28px;
+  margin-bottom: 7.5px;
+}
+.keahlian-list {
+  margin-top: 23px;
+  margin-left: 47px;
+  font-size: 17.5px;
+}
+.keahlian-list li {
+  height: 24px;
+  line-height: 24px;
+}
+
+/* ========== 5. PANEL PUTIH KANAN ========== */
+.panel {
+  position: absolute;
+  left: 276px;
+  top: 46px;
+  right: 0;
+  height: 948px;
+  background: var(--paper);
+  border-radius: 40px 0 0 40px; /* hanya sudut kiri yang membulat */
+  padding: 71px 26px 0 28px;
+  color: var(--navy);
+}
+
+h1 {
+  font:
+    700 46px/46px "Montserrat",
+    sans-serif;
+  letter-spacing: 1px;
+}
+.jabatan {
+  margin-top: 3px;
+  font:
+    500 26px/30px "Montserrat",
+    sans-serif;
+  color: var(--grey);
+}
+.tentang {
+  margin-top: 19px;
+  font-size: 18.5px;
+  line-height: 28.5px;
+  text-align: justify; /* teks rata kiri-kanan seperti contoh */
+}
+
+/* bar judul: kotak biru tua yang menempel di tepi kiri panel */
+.bar {
+  width: 262px;
+  height: 44px;
+  margin-left: -28px; /* menarik bar ke tepi kiri panel */
+  padding-left: 34px;
+  background: var(--navy);
+  color: #fff;
+  font:
+    700 22px/44px "Montserrat",
+    sans-serif;
+  letter-spacing: 3px;
+}
+.b-aplikasi {
+  font-size: 14.5px;
+  letter-spacing: 0.5px;
+}
+.b-pengalaman {
+  margin-top: 6px;
+}
+.b-aplikasi {
+  margin-top: 3px;
+}
+.b-hobi {
+  margin-top: 18px;
+}
+
+/* daftar isi di panel putih */
+.list {
+  width: 350px;
+  padding-left: 30px;
+  font-size: 19.5px;
+  line-height: 27px;
+}
+.list li::marker {
+  font-size: 17px;
+}
+.l-pengalaman {
+  margin-top: 7.5px;
+}
+.l-aplikasi {
+  margin-top: 11.5px;
+}
+.l-hobi {
+  margin-top: 15.5px;
+}
+
+/* ========== 6. CETAK ========== */
+@page {
+  size: 736px 1041px;
+  margin: 0;
+}
+@media print {
+  body {
+    background: none;
+    padding: 0;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
